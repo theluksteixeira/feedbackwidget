@@ -8,9 +8,10 @@ import { FormEvent, useState } from "react";
 interface FeedbackContentStepProps {
     feedbackType: FeedbackType;
     onFeedbackRestartRequested: () => void;
+    onFeedbackSent: () => void;
 }
 
-export function FeedbackContentStep({ feedbackType, onFeedbackRestartRequested }: FeedbackContentStepProps) {
+export function FeedbackContentStep({ feedbackType, onFeedbackRestartRequested, onFeedbackSent }: FeedbackContentStepProps) {
     
     const [screenShot, setScreenShot] = useState<string |null>(null);
     const [comment, setComment] = useState('');
@@ -19,7 +20,7 @@ export function FeedbackContentStep({ feedbackType, onFeedbackRestartRequested }
 
     function handleSubmitFeedback(event: FormEvent){
         event.preventDefault();
-
+        onFeedbackSent(true);
         
     }
 
