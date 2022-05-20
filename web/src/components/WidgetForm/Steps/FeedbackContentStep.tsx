@@ -20,7 +20,7 @@ export function FeedbackContentStep({ feedbackType, onFeedbackRestartRequested, 
 
     function handleSubmitFeedback(event: FormEvent){
         event.preventDefault();
-        onFeedbackSent(true);
+        onFeedbackSent();
         
     }
 
