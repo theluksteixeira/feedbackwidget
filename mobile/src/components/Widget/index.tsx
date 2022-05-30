@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { ChatTeardropDots } from 'phosphor-react-native';
-import BottomSheet  from '@gorhom/bottom-sheet'
+import BottomSheet from '@gorhom/bottom-sheet'
 import { TouchableOpacity } from 'react-native';
 import { theme } from '../../theme';
 
@@ -18,10 +18,10 @@ function Widget() {
   return (
     <>
       <TouchableOpacity style={styles.button} onPress={handleOpen}>
-        <ChatTeardropDots size={24} weight="bold" color={theme.colors.text_on_brand_color}/>
+        <ChatTeardropDots size={24} weight="bold" color={theme.colors.text_on_brand_color} />
       </TouchableOpacity>
 
-      <BottomSheet ref={BottomSheetRef} snapPoints={[1,200]}>
+      <BottomSheet ref={BottomSheetRef} snapPoints={[1, 200]} backgroundStyle={styles.modal} >
 
       </BottomSheet>
     </>
