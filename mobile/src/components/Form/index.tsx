@@ -7,6 +7,7 @@ import { styles } from './styles';
 import { FeedbackType } from '../../components/Widget';
 import { feedbackTypes } from '../../utils/feedbackTypes';
 import { ScreenshotButton } from '../ScreenshotButton';
+import { Button } from '../Button';
 
 interface Props {
   feedbackType: FeedbackType;
@@ -22,7 +23,7 @@ export function Form({ feedbackType }: Props) {
         </TouchableOpacity>
 
         <View style={styles.titleContainer}>
-          <Image source={feedbackTypeInfo.image} style={styles.image}/>
+          <Image source={feedbackTypeInfo.image} style={styles.image} />
 
           <Text style={styles.titleText}>
             {feedbackTypeInfo.title}
@@ -32,8 +33,9 @@ export function Form({ feedbackType }: Props) {
 
       <TextInput multiline style={styles.input} placeholder="Alo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo." placeholderTextColor={theme.colors.text_secondary} />
 
-      <View>
-        <ScreenshotButton onTakeShot={() => {}} onRemoveShot={() => {}} screenshot=""/>
+      <View style={styles.footer}>
+        <ScreenshotButton onTakeShot={() => { }} onRemoveShot={() => { }} screenshot="https://github.com/theluksteixeira.png" />
+        <Button isLoading={false}></Button>
       </View>
     </View>
   );

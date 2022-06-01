@@ -1,6 +1,6 @@
 import { isLoading } from 'expo-font';
 import React from 'react';
-import { ActivityIndicator, Text, View } from 'react-native';
+import { ActivityIndicator, Text, TouchableOpacityProps } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { theme } from '../../theme';
 
@@ -10,7 +10,7 @@ interface Props extends TouchableOpacityProps {
     isLoading: boolean;
 }
 
-export function Button({...rest}: Props) {
+export function Button({ isLoading }: Props) {
     return (
         <TouchableOpacity style={styles.container}>
             {
