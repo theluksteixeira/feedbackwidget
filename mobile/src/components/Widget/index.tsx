@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { ChatTeardropDots } from 'phosphor-react-native';
 import BottomSheet from '@gorhom/bottom-sheet'
 import { TouchableOpacity } from 'react-native';
@@ -14,7 +14,9 @@ import { Success } from '../Success';
 export type FeedbackType = keyof typeof feedbackTypes;
 
 function Widget() {
-
+  const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null);
+  const [feedbackSent, setFeedbackSent] = useState(false);
+  
   const BottomSheetRef = useRef<BottomSheet>(null);
 
   function handleOpen() {
@@ -27,8 +29,14 @@ function Widget() {
         <ChatTeardropDots size={24} weight="bold" color={theme.colors.text_on_brand_color} />
       </TouchableOpacity>
 
-      <BottomSheet ref={BottomSheetRef} snapPoints={[1, 200]} backgroundStyle={styles.modal} >
-        <Success/>
+      <BottomSheet ref={BottomSheetRef} snapPoints={[1, 200]} backgroundStyle={styles.modal} handleIndicatorStyle={styles.indicator}>
+        {
+          feedbackSent ? <Success />
+            :
+            <>
+              {feedbackType ? <Form feedbackType={feedbackType} /> : <Options />}
+            </>
+        }
       </BottomSheet>
     </>
   );
