@@ -41,11 +41,13 @@ export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props
     }
 
     setIsSendingFeedback(true);
+    const screenshotBase64 = screenshot && await FileSystem.readAsStringAsync(screenshot, { encoding: 'base64' });
+
 
     try {
       await api.post('/feedbacks', {
         type: feedbackType,
-        screenshot,
+        screenshot: `data:image/png:base64, ${screenshotBase64}`,
         comment
       })
 
