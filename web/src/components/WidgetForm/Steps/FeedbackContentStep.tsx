@@ -17,7 +17,7 @@ export function FeedbackContentStep({ feedbackType, onFeedbackRestartRequested, 
 
     const [screenShot, setScreenShot] = useState<string | null>(null);
     const [comment, setComment] = useState('');
-    const [isSendingFeedback, setIsSendingFeedback] = useState(true);
+    const [isSendingFeedback, setIsSendingFeedback] = useState(false);
 
     const feedbackTypeInfo = feedbackTypes[feedbackType];
 
